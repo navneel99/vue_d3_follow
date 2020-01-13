@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>Vue.js and D3.js Examples</title>
+    </head>
+    <body>
+        <div id = "nav_bar">
+            <nav>
+                    <a href="#home" v-on:click="currentAt('Home')">Home</a>
+                    <a href="#below" v-on:click="currentAt('Below')">Below</a>
+                    <!-- <!-- <span id ="textloc" >&nbsp; We are currently at {{place}}</span> --> 
+            </nav>
+        </div>
+        <hr>
+        <h1>Vue.js Follow Along</h1>
+        <div id="home">
+            <h3>Click on the text below to reverse it!</h3>
+            <div id="rev" v-on:click="changeText()">
+                {{ text }}
+            </div>
+            <h2> Reverse your input</h2>
+            <div id ="input_rev" >
+                <span class="marker">Original Message:</span> <p class="take">{{n_message}}</p>
+                <span class="marker">Reversed Message: </span><p class="take" v-if="initial">{{reverseText()}}</p>
+                <p v-else>Change Something in the input box to reverse it</p>
+                <span style="font-size: 20px;">Input: <input v-model="n_message"></span>
+            </div>
+            <h3>Working with Counter</h3>
+            <div id="counter"> 
+                <good-counter></good-counter>
+                <good-counter></good-counter>
+                <good-counter></good-counter>
+                <good-counter></good-counter>
+            </div>
+        </div>
+
+        <form id="adder" v-cloak>
+
+            <h1>Price Adder</h1>
+            <ul>
+                <li v-for="service in services" v-on:click="toggleActive(service)" v-bind:class="{ 'active': service.active}">
+                    {{service.name}} <span>{{service.price | currency}}</span>
+                </li>
+            </ul>        
+            <div class="total">
+                Total: <span>{{total() | currency}}</span>
+            </div>
+        
+        </form>
+
+
+
+
+
+        <h1>D3 Examples</h1>
+        <div id="below">
+        </div>
+        <h3> Random Bar Chart Creation</h3>
+        <h4>Enter the number of bars for your chart</h4>
+        <input id="Num"><br><br>
+        <button id= "submit">Create Bar Graph</button> <br><br>    
+        <div id="bar">
+        </div>
+
+
+
+
+        <script src="vue.js"></script>
+        <script src = "main_vue.js"></script>
+        <script src="d3.js"></script>
+        <script src = "main_d3.js"></script>
+        <link rel="stylesheet" href="style.css">
+
+    </body>
+
+</html>
