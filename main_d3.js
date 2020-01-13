@@ -31,7 +31,7 @@ g();
 
 
 function f(data){
-    var height = 500,
+    var height = 750,
     scaleFactor = 5,
     barWidth = 20;
     
@@ -55,7 +55,7 @@ d3.select("#submit").on("click",function(){
     var qq = [];
     var n = parseInt(d3.select("#Num").property("value"));
     for (i = 0; i < n;i++){
-        qq.push(Math.floor(Math.random() * 100) + 10);
+        qq.push(Math.floor(Math.random() * 100)+10);
     }
     f(qq);
 })
